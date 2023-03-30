@@ -2,10 +2,10 @@
 
 
 Avant de lancer le monitoring, veuillez bien lire le **manuel utilisateur**. 
-Il faut séparer les fichiers en deux endroits puis configurer certains fichiers.
 
 ## Comment placer les fichiers
 **Sur Raspberry** : mettre sous “/home/pi” le dossier “Projet”, dans lequel on trouve main.py, camera.py, son.mp3, historiqueAction.csv et un dossier “Video”. 
+
 **Sur l’ordinateur personnel**, créer un dossier en y mettant : googlePratique.py, csvDrive.py, video.py, key.json, token.pickle
 
 
@@ -13,8 +13,11 @@ Il faut séparer les fichiers en deux endroits puis configurer certains fichiers
 Le programme a besoin de l’adresse ip de Raspberry et l’adresse ip de l’ordinateur personnel pour pouvoir communiquer. Ainsi, on a besoin du path du dossier où on a placé les fichiers (sur l’ordinateur personnel) : 
 
 camera.py : l’user et l’adresse ip de l’ordinateur personnel + le path 
+
 videoDrive.py : le path
+
 csvDrive.py : l’adresse ip de la Raspberry + le path
+
 googlePratique.py : le path
 
 Veuillez suivre les commentaires dans ces fichiers qui vous indiquent où et quoi modifier.
@@ -22,6 +25,7 @@ Veuillez suivre les commentaires dans ces fichiers qui vous indiquent où et quo
 
 ## Pour lancer le programme
 Il suffit de brancher la Raspberry.
+
 Il se peut qu'il y aie un problème de connexion avec Google car le token est expiré, veuillez nous contacter ou suivre la section 3.4 du manuel utilisateur
 
 
