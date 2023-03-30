@@ -1,6 +1,5 @@
 # Monitoring Animaux
 
-Jiayi HE, Lénaïs DESBOS
 
 Avant de lancer le monitoring, veuillez bien lire le **manuel utilisateur**. 
 Il faut séparer les fichiers en deux endroits puis configurer certains fichiers.
@@ -37,4 +36,7 @@ pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-
 ## Pour accéder à Google Drive où sont stockées les vidéos et les actions réalisées
 https://drive.google.com/drive/folders/1CLgc7_7KY1TpCy4FMC1lKvnhNmA4isGh
 Si vous voulez stocker ces fichiers dans votre Drive personnel, veuillez nous donner votre adresse GMAIL ou suivre la section 3.4 du manuel utilisateur.
+
+## Auteurs
+Jiayi HE, Lénaïs DESBOS
 
