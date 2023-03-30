@@ -1,5 +1,9 @@
+<img src="./logo.png" width="200" height="200" />
+
 # Monitoring Animaux
 
+
+Monitoring Animaux est un assistant intelligent qui va pouvoir accompagner et surveiller au minimum vos animaux de compagnie lorsque vous êtes à distance, c’est-à-dire au travail ou en voyage court.
 
 Avant de lancer le monitoring, veuillez bien lire le **manuel utilisateur**. 
 
