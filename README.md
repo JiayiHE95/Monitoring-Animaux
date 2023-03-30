@@ -6,6 +6,7 @@ Avant de lancer le monitoring, veuillez bien lire le **manuel utilisateur**.
 ## Comment placer les fichiers
 **Sur Raspberry** : mettre sous “/home/pi” le dossier “Projet”, dans lequel on trouve main.py, camera.py, son.mp3, historiqueAction.csv et un dossier “Video”. 
 
+
 **Sur l’ordinateur personnel**, créer un dossier en y mettant : googlePratique.py, csvDrive.py, video.py, key.json, token.pickle
 
 
