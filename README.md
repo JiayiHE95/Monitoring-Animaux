@@ -1,53 +1,132 @@
+<div align="center">
+
 <img src="./logo.png" width="200" height="200" />
 
-# Monitoring Animaux
+# 🐾 Monitoring Animaux – Assistant Intelligent pour Animaux de Compagnie
 
+Surveillez vos animaux à distance grâce à un système intelligent basé sur Raspberry Pi, caméras et synchronisation Google Drive.
 
-Monitoring Animaux est un assistant intelligent qui va pouvoir accompagner et surveiller au minimum vos animaux de compagnie lorsque vous êtes à distance, c’est-à-dire au travail ou en voyage court.
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" 
+       src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
+</a><br />
+Ce projet est sous licence 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+  Creative Commons Attribution - NonCommercial - NoDerivatives 4.0 International
+</a>.
 
-Avant de lancer le monitoring, veuillez bien lire le **manuel utilisateur**. 
+---
 
-## Comment placer les fichiers
-**Sur Raspberry** : mettre sous “/home/pi” le dossier “Projet”, dans lequel on trouve main.py, camera.py, son.mp3, historiqueAction.csv et un dossier “Video”. 
+</div>
 
+## 📋 Sommaire
 
-**Sur l’ordinateur personnel**, créer un dossier en y mettant : googlePratique.py, csvDrive.py, video.py, key.json, token.pickle
+- [Présentation](#présentation)
+- [Fonctionnalités](#fonctionnalités)
+- [Architecture du Système](#architecture-du-système)
+- [Installation et Préparation](#installation-et-préparation)
+- [Exécution](#exécution)
+- [Accès aux Vidéos](#accès-aux-vidéos)
+- [Contributeurs](#contributeurs)
 
+---
 
-## Changer les paramètres dans les fichiers
-Le programme a besoin de l’adresse ip de Raspberry et l’adresse ip de l’ordinateur personnel pour pouvoir communiquer. Ainsi, on a besoin du path du dossier où on a placé les fichiers (sur l’ordinateur personnel) : 
+## 🐶 Présentation
 
-**camera.py** : l’user et l’adresse ip de l’ordinateur personnel + le path 
+**Monitoring Animaux** est un assistant intelligent conçu pour accompagner vos animaux domestiques lorsque vous êtes à distance (travail, voyage court, etc.).
 
-**videoDrive.py** : le path
+Ce système basé sur **Raspberry Pi** enregistre des vidéos courtes en cas de détection d’activité, les stocke automatiquement sur **Google Drive**, et trace l'historique des actions.  
 
-**csvDrive.py** : l’adresse ip de la Raspberry + le path
+---
 
-**googlePratique.py** : le path
+## ✅ Fonctionnalités
 
-Veuillez suivre les commentaires dans ces fichiers qui vous indiquent où et quoi modifier.
+- Détection de mouvement via caméra
+- Enregistrement vidéo (durée : 12 secondes)
+- Lecture d’un son déclencheur (`son.mp3`)
+- Stockage des vidéos sur Google Drive
+- Enregistrement CSV des actions détectées
+- Communication inter-machines via IP
 
+---
 
-## Pour lancer le programme
-Il suffit de brancher la Raspberry.
+## 🧱 Architecture du Système
 
-Il se peut qu'il y aie un problème de connexion avec Google car le token est expiré, veuillez nous contacter ou suivre la section 3.4 du manuel utilisateur
+Le projet repose sur une architecture distribuée :
 
+- **Raspberry Pi** :
+  - Détecte les mouvements
+  - Lance l’enregistrement avec `picamera`
+  - Envoie les vidéos et logs à l'ordinateur personnel
 
-## Modules à importer sur la Raspberry
-pip install picamera
+- **Ordinateur Personnel** :
+  - Gère le transfert vers Google Drive (via API)
+  - Organise les fichiers et l’historique
+  - Synchronise les CSV avec les vidéos
 
+📡 **Communication** :  
+Les échanges entre Raspberry Pi et l'ordinateur personnel se font via **IP fixe** définie dans les scripts.
 
-## Modules à importer sur l’ordinateur personnel (Python 3.7 ou +) 
-pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+---
 
+## ⚙️ Installation et Préparation
 
-## Pour accéder à Google Drive où sont stockées les vidéos et les actions réalisées
-https://drive.google.com/drive/folders/1CLgc7_7KY1TpCy4FMC1lKvnhNmA4isGh
-Si vous voulez stocker ces fichiers dans votre Drive personnel, veuillez nous donner votre adresse GMAIL ou suivre la section 3.4 du manuel utilisateur.
+### 📁 Organisation des Fichiers
 
-## Auteurs
-Jiayi HE
+#### Sur **Raspberry Pi**
+Placer dans `/home/pi/Projet/` :
+```
+Projet/
+├── main.py
+├── camera.py
+├── son.mp3
+├── historiqueAction.csv
+└── Video/
+```
 
-Lénaïs DESBOS
+#### Sur **Ordinateur Personnel**
+Créer un dossier avec :
+```
+Ordinateur/
+├── googlePratique.py
+├── csvDrive.py
+├── video.py
+├── key.json
+└── token.pickle
+```
 
+### 🔧 Modifications Nécessaires
+
+Dans les fichiers suivants, modifier les adresses IP et chemins selon votre environnement :
+
+- `camera.py` : IP + user de l’ordinateur perso + path
+- `videoDrive.py` : chemin local
+- `csvDrive.py` : IP de la Raspberry + chemin
+- `googlePratique.py` : chemin local
+
+> 📝 Suivre les commentaires dans les fichiers pour chaque modification à effectuer.
+
+---
+
+## 🚀 Exécution
+
+1. Connecter et alimenter la **Raspberry Pi**
+2. Le programme démarre automatiquement
+3. En cas de problème avec Google (token expiré), suivez la **section 3.4 du manuel utilisateur** ou contactez les auteurs
+
+---
+
+## ☁️ Accès aux Vidéos
+
+Les vidéos et historiques d’actions sont consultables sur Google Drive :
+
+🔗 [Accéder au dossier partagé](https://drive.google.com/drive/folders/1CLgc7_7KY1TpCy4FMC1lKvnhNmA4isGh)
+
+Si vous souhaitez synchroniser ces vidéos avec votre propre Drive, suivez la procédure dans le manuel (section 3.4) ou contactez l’équipe.
+
+---
+
+## 🤝 Contributeurs
+
+- [**Jiayi He**](https://github.com/JiayiHE95)
+- [**Lénaïs Desbos**](https://github.com/lenais-desbos)
