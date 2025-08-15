@@ -2,7 +2,7 @@
 
 <img src="./logo.png" width="200" height="200" />
 
-# 🐾 Monitoring Animaux – Assistant Intelligent pour Animaux de Compagnie
+# Monitoring Animaux – Assistant Intelligent pour Animaux de Compagnie
 
 Surveillez vos animaux à distance grâce à un système intelligent basé sur Raspberry Pi, caméras et synchronisation Google Drive.
 
@@ -16,6 +16,7 @@ Ce projet est sous licence
 </a>.
 
 ---
+**Décembre 2022**
 
 </div>
 
